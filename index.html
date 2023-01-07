@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.9.2/aframe.js"></script>
+    <script src="build.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="assets/circovirus_porcino.png" imagesrcset="assets/circovirus_porcino_400px.png 400w, assets/circovirus_porcino_800px.png 800w, assets/circovirus_porcino_1600px.png 1600w" imagesizes="50vw">
+    <link rel="preload" as="image" href="assets/herpes_canino _tipo1.png" imagesrcset="assets/herpes_canino _tipo1_400px.png 400w, assets/herpes_canino _tipo1_800px.png 800w, assets/herpes_canino _tipo1_1600px.png 1600w" imagesizes="50vw">
+    <link rel="preload" as="image" href="assets/inmunodeficiencia_felina.png" imagesrcset="assets/inmunodeficiencia_felina_400px.png 400w, assets/inmunodeficiencia_felina_800px.png 800w, assets/inmunodeficiencia_felina_1600px.png 1600w" imagesizes="50vw">
+    <link rel="preload" as="image" href="assets/leucemia_felina.png" imagesrcset="assets/leucemia_felina_400px.png 400w, assets/leucemia_felina_800px.png 800w, assets/leucemia_felina_1600px.png 1600w" imagesizes="50vw">
+    <link rel="preload" as="image" href="assets/herpes_ovino_tipo2.png" imagesrcset="assets/herpes_ovino_tipo2_400px.png 400w, assets/herpes_ovino_tipo2_800px.png 800w, assets/herpes_ovino_tipo2_1600px.png 1600w" imagesizes="50vw">
+    <link rel="preload" as="image" href="assets/parvovirus_canino_tipo2.png" imagesrcset="assets/parvovirus_canino_tipo2_400px.png 400w, assets/parvovirus_canino_tipo2_800px.png 800w, assets/parvovirus_canino_tipo2_1600px.png 1600w" imagesizes="50vw">
+    <link rel="preload" as="image" href="assets/herpesvirus _psitácido.png" imagesrcset="assets/herpesvirus _psitácido.png_400px.png 400w, assets/herpesvirus _psitácido.png_800px.png 800w, assets/herpesvirus _psitácido.png_1600px.png 1600w" imagesizes="50vw">
+    <link rel="preload" as="image" href="assets/panleucopenia_felina.png" imagesrcset="assets/panleucopenia_felina.png_400px.png 400w, assets/panleucopenia_felina.png_800px.png 800w, assets/panleucopenia_felina.png_1600px.png 1600w" imagesizes="50vw">
+    <link rel="stylesheet" href="css/style.css">
+
+    
+    <script>
+    AFRAME.registerComponent('showbutton', {
+      schema: {
+        'target': {type: 'selector'},
+      },
+      init: function () {
+        var show=false;    
+        this.el.addEventListener("click",()=>{
+          if(show){
+            this.data.target.setAttribute("visible","false");
+            this.el.querySelector("a").innerHTML="Show Box";
+          }else{
+            this.data.target.setAttribute("visible","true");
+            this.el.querySelector("a").innerHTML="Hide Box";
+          }
+          show=!show;
+        });
+      }
+    });
+    </script>
+  </head>
+  <body>
+    <div id="slide2" class="slide">
+    <div id="slide3" class="slide">
+    <div id="slide4" class="slide">
+    <div id="slide5" class="slide">
+    <div id="slide5" class="slide">
+    <div id="slide6" class="slide"> 
+    <div id="slide7" class="slide">
+    <div id="slide8" class="slide">
+    <div id="slide9" class="slide"> 
+   
+    <a-scene fog="type: linear; color: #222222; far: 50;">
+
+      <a-assets>
+        <img id="floor" src="assets/floor.png" crossorigin="anonymous"/>
+        <img id="tex1" src="assets/box.png" crossorigin="anonymous"/>
+     
+      </a-assets>
+
+      <a-plane material="src:#floor; repeat: 700 700; transparent: true;" height="500" width="500" rotation="-90 0 0"></a-plane>
+      <a-sky color = "#222222"></a-sky>
+      
+
+      <a-entity id="cameraRig">
+        <a-camera id="camera">
+        </a-camera>
+        <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: .screen"></a-entity>
+        <a-entity laser-controls raycaster="objects: .screen;"></a-entity>
+      </a-entity>
+      
+      <a-entity id="menu" class="screen menu dark" htmlembed="ppu:200" position="-1.712 2.5 -4.476" rotation="0 45 0">
+        <h3>Testeos</h3>
+        <ul>
+          <li><a href="#" class="button">INFORME</a></li>
+          <li><a href="#slide2" class="button">CIRCOVIRUS PORCINO TIPO 2</a></li>
+          <li><a href="#slide3" class="button">VIRUS HERPES CANINO TIPO 1</a></li>
+          <li><a href="#slide4" class="button">VIRUS INMUNO DEFICIENCIA FELINA</a></li>
+          <li><a href="#slide5" class="button">VIRUS DE LA LEUCEMIA FELINA</a></li>
+          <li><a href="#slide6" class="button">HERPES OVINO TIPO 2</a></li>
+          <li><a href="#slide7" class="button">PARVOVIRUS CANINO TIPO 2</a></li>
+          <li><a href="#slide8" class="button">VIRUS HERPES PSITACIDO</a></li>
+          <li><a href="#slide9" class="button">VIRUS PANLEUCEMIA_FELINA</a></li>  
+          
+        </ul> 
+      </a-entity>
+
+
+      <a-entity id="main" class="screen dark main" htmlembed="ppu:128" position="0.5 2.5 -5">
+        <div id="page1">
+          <h1>A-Frame HTML Embed Component</h1>
+          <p>HTML Embed is a component created for A-Frame. The HTML Embed component allows for arbitrary html to be inserted into your aframe scene. It allows you to update the display within A-Frame simply by manipulating the DOM as you normally would. 
+          </p>
+          <p>
+      In addition to rendering the html to the A-Frame scene it allows for interaction. Most css pseudo selectors such as hover, active, focus and target should work with interactivity enabled without any modifications to your css. Mouse events can be attached to the html elements as usual. </p>
+          <a href="#slide2" class="button next">Proximo</a>
+        </div>
+
+        <div id="page2">    
+            <img src="assets/circovirus_porcino.png" alt="circovirus" width="400" height="540"> 
+          
+          <!--  <div class="code">
+          .button{
+	          color: #000000;
+          }
+          .button:hover{
+	          color: #ffffff;
+          } 
+          </div>
+          
+
+          <div class="code">
+            &lt;a-scene&gt;
+	            &lt;a-entity htmlembed&gt;
+		            &lt;a href="#home" class="button">Home&lt;/a&gt;
+	            &lt;/a-entity&gt;
+            &lt;/a-scene&gt;
+          </div>
+         -->    
+          <a href="#" class="button prev">Anterior</a>
+          <a href="#slide3" class="button next">Proximo</a>
+        </div>
+
+     
+
+        <div id="page3">
+          
+          <img src="assets/herpes_canino _tipo1.png" alt="herpes canino" width="400" height="540"> 
+
+          <!--
+          <div class="code">  
+          cubebutton.addEventListener("click",function(){
+            if(show){
+              box.setAttribute("visible","false");
+              cubebutton.innerHTML="Show Box";
+            }else{
+              box.setAttribute("visible","true");
+              cubebutton.innerHTML="Hide Box";
+            }
+            show=!show;
+          });
+        
+          </div>
+      
+          <a-entity showbutton="target:#box"><a class="button" href="javascript:void(0)">Show Box</a></a-entity>
+           --> 
+           <a href="#" class="button prev">Anterior</a>
+          <a href="#slide4" class="button next">Proximo</a>
+          
+        </div>
+
+       
+        <div id="page4">
+          <img src="assets/inmunodeficiencia_felina.png" alt="inmunodeficiencia felina" width="400" height="540"> 
+          
+          <a href="#" class="button prev">Anterior</a>
+          <a href="#slide5" class="button next">Proximo</a>
+        </div>
+
+        <div id="page5">
+          <img src="assets/leucemia_felina.png" alt="leucemia felina" width="400" height="540"> 
+          
+          <a href="#" class="button prev">Anterior</a> 
+          <a href="#slide6" class="button next">Proximo</a>
+        </div>
+
+        <div id="page6">
+          <img src="assets/herpes_ovino_tipo2.png" alt="herpes_ovino_tipo2" width="400" height="540"> 
+          
+          <a href="#" class="button prev">Anterior</a> 
+          <a href="#slide7" class="button next">Proximo</a>
+        </div>
+
+        <div id="page7">
+          <img src="assets/parvovirus_canino_tipo2.png" alt="parvovirus_canino_tipo2" width="400" height="540"> 
+          
+          <a href="#" class="button prev">Anterior</a> 
+          <a href="#slide8" class="button next">Proximo</a>
+        </div>
+
+
+        <div id="page8">
+          <img src="assets/herpesvirus _psitácido.png" alt="hepesvirus psitacido" width="400" height="540"> 
+          
+          <a href="#" class="button prev">Anterior</a> 
+          <a href="#slide9" class="button next">Proximo</a>
+        </div>
+        
+        <div id="page9">
+          <img src="assets/panleucopenia_felina.png" alt="panleucemia felina" width="400" height="540"> 
+          
+          <a href="#" class="button prev">Anterior</a> 
+        
+        </div>
+        
+
+      </a-entity>
+
+      
+
+
+      <a-entity id="menu" class="screen menu dark" htmlembed="ppu:200" position="2.712 2.5 -4.476" rotation="0 -45 0">
+        
+        <h3>Contactos</h3>
+
+       
+
+      </a-entity>
+        
+      <a-entity id="main" class="screen dark main" htmlembed="ppu:128" position="0.5 2.5 -5">
+        
+
+        
+        
+
+        
+
+    
+        
+
+
+      
+      <a-box material="src:#tex1" scale="0.5 0.5 0.5" position="0 0.5 -4" id="box" visible="false"></a-box>
+    </a-entity>
+    </a-scene>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>
